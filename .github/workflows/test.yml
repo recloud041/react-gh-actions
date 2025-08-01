@@ -7,12 +7,11 @@ on:
     branches: [ main ]
 
 jobs:
-  run-react-app:
+  run-react-app-test:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4582941be40666d6b16f9ab8e4524fc70bb29eb0e
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
@@ -25,5 +24,24 @@ jobs:
       - name: Run Tests 
         run: npm test  
 
+  deploy:
+        runs-on: ubuntu-latest    
+        steps:
+          - name: Checkout code
+            uses: actions/checkout@v4582941be40666d6b16f9ab8e4524fc70bb29eb0e
+
+          - name: Set up Node.js
+            uses: actions/setup-node@v4
+            with:
+              node-version: '18'
+
+          - name: Install dependencies
+            run: npm ci
+
+          - name: Build React app
+            run: npm run build
+          
+          - name: Deploy to gh
+            run: echo "Deploying using GitHub Actions"
       # - name: Run React app
       #   run: npm start &
