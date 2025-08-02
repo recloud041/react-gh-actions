@@ -1,8 +1,8 @@
 name: output yaml workflow
 on: workflow_dispatch
 jobs:
-   info:
+  info:
     runs-on: ubuntu-latest
     steps:
-    - name: Output Github Context
-      run: echo "${{ toJson(github) }}" > github_context.json
+      - name: Output Github Context
+        run: echo "${{ toJson(github) }}" > github_context.json

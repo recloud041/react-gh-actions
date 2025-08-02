@@ -60,5 +60,7 @@ jobs:
       - name: Build React app
         run: npm run build
       
+      - name: Deploy to gh
+        run: echo "Deploying using GitHub Actions"
     # - name: Run React app
     #   run: npm start &
